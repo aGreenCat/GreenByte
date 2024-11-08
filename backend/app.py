@@ -1,9 +1,9 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import json
 #import firebase
 
-import food_recognition
+from food_recognition import recognize
 
 app = Flask(__name__)
 CORS(app)
@@ -12,7 +12,7 @@ CORS(app)
 def get_data():
     return json.loads('{"message":"Hello World"}')
 
-@app.route('/food_recognition', methods=["POST"])
+@app.route('/recognize', methods=["POST"])
 def extract_data():
     try:
         data = request.get_json()
@@ -21,8 +21,8 @@ def extract_data():
         if not image_url:
             return jsonify({"error": "No image provided"}), 400
         
-        food_item = food_recognition(image_url)
-        return jsonify({"food_name": food_name})
+        food_item = recognize(image_url)
+        return jsonify({"food_name": food_item})
     
     #TODO: Once the Claude/Gemini Logic to handle the inputs is created, finish this endpoint.
 
@@ -32,4 +32,4 @@ def extract_data():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5001)
