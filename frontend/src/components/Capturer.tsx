@@ -27,29 +27,38 @@ const Capturer = (props : CapturerProps) => {
         canvas: 'Canvas is not supported.'
     }
 
-    const handleSubmitPhoto = async () => {
-        if (photoUploadBuffer === null) {
-            if (camera.current === null) {
-                return;
-            }
+    const handleTakePhoto = async () => {
+		if (camera.current === null) {
+			console.error('Error: No camera');
+			return;
+		}
 
-            const photo = camera.current.takePhoto();
+		const photo = camera.current.takePhoto();
 
-            if (typeof photo === 'string') {
-                recognizePhoto(photo);
-            }
-        } else {
-            recognizePhoto(photoUploadBuffer);
-        }
-    }
-
-    const recognizePhoto = async (buffer : string) => {
-        if (buffer === null) {
+		if (photo === null) {
             console.error('Error: No photo buffer');
             return;
         }
 
-        recognize(buffer).then(response => {
+		if (typeof photo === 'string') {
+			let response = await recognize(photo)
+			
+			if (response.error) {
+				console.error('Error: ' + response.error);
+			} else {
+				console.log(response);
+				props.updateFoodData(response);
+			}
+		}
+    }
+
+    const handleUploadPhoto = async () => {
+		if (photoUploadBuffer === null) {
+			console.error('Error: No photo buffer');
+			return;
+		}
+
+        recognize(photoUploadBuffer).then(response => {
             if (response.error) {
                 console.error('Error: ' + response.error);
             } else {
@@ -61,32 +70,38 @@ const Capturer = (props : CapturerProps) => {
 
     return (
         <>
-            <Camera ref={camera} errorMessages={defaultErrorMessages} aspectRatio={1}/>
-            <button
-                onClick={handleSubmitPhoto}
-            >Submit Photo</button>
+			{props.version === 'capture'
+				? <div>
+					<h2>Capture Image</h2>
 
-            <input type="file" accept="image/*"
-               onChange={async e=> {
-                   if (!e.currentTarget.files) {
-                       console.error('Error: No file selected');
-                       return
-                   }
+					<Camera ref={camera} errorMessages={defaultErrorMessages} aspectRatio={1}/>
+					<button onClick={handleTakePhoto}>Take Photo</button>
+				</div>
+				: <div>
+					<h2>Upload Image</h2>
 
-                   const photo = e.currentTarget.files[0];
-                   const photoBuffer = await toBase64(photo);
+					<input id="upload" type="file" accept="image/*"
+						onChange={async (event) => {
+							if (event.target.files === null) {
+								return;
+							}
 
-                   if (typeof photoBuffer !== 'string') {
-                       console.error('Error: File could not be converted to buffer');
-                       return;
-                   }
+							const file = event.target.files[0];
+							const base64 = await toBase64(file);
 
-                   setPhotoUploadBuffer(photoBuffer);
-               }}
-               onClick={e => {
-                   e.currentTarget.value = "";
-               }}
-            />
+							if (typeof base64 === 'string') {
+								setPhotoUploadBuffer(base64);
+							} else {
+								console.error('Error: Bad image file');
+							}
+						}}
+					/>
+
+					{photoUploadBuffer &&
+						<button onClick={handleUploadPhoto}>Upload Photo</button>
+					}
+				</div>
+			}
         </>
     )
 

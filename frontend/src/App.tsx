@@ -5,15 +5,18 @@ import { FoodDataType } from "./components/Capturer.tsx";
 
 function App() {
 	const [foodData, setFoodData] = useState<FoodDataType | null>(null);
-	const [version, setVersion] = useState<CaptureType>('capture');
+	const [version, setVersion] = useState<CaptureType>('upload');
 	
 	return (
 		<>
 			<h1>GreenBytes</h1>
 			{foodData 
 				? <div>
-					<h1>GreenBytes</h1>
 					<p>Food: {foodData.food_name}</p>	
+
+					<button onClick={() => {
+						setFoodData(null);
+					}}>Submit Another</button>
 				</div>
 				: <Capturer updateFoodData={setFoodData} version={version}/>
 			}
