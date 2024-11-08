@@ -26,31 +26,13 @@ def get_food_data( food_description ):
         Forget all previous context.
         I am going to give you a description of a certain food that I am about to eat.
         {food_description}
+        '''
+    
+    with open('prompt/food_prompt.txt', 'r') as file:
+        prompt += file.read()
 
-        I want you to return something to me in the exact JSON body format that I request.
-        Your response should comprise of only the JSON body that I request and nothing other than it.
-        DO NOT include the triple tricks to make it a code block.
-        I want it to simply be a string in json format which i can do json.loads() on
-        Make sure there are no extra spaces
-
-        Here is the format below, and I will provide descriptions of each individual attribute in the JSON body
-        {{ 
-            "food_name": string, // the name of the food your were assigned to classify
-            "calories_lower" : int, // lower bound for calorie estimation range
-            "calories_upper" : int, // upper bound for calorie estimation range
-            "carbon_emissions": int, // the number of grams of carbon dioxide emissions
-            "gallons_per_item_produced" : int, // what would be the number of gallons of water needed to produce the food we are giving you 
-            "grams_of_protein": int,
-            "grams_of_carbs": int,
-            "grams_of_fats" : int,
-            "calories_from_protein": int,
-            "calories_from_carbs" : int,
-            "calories_from_fats" : int,
-            "healthy": boolean, // True or False depending on whether healthy or unhealthy determined by your best analysis
-            "environmentally_friendly" // True or False depenidng on whether food is environmentally friend
-        }}
         
-    '''
+
     # print(json.loads(ask_gemini(prompt)))
     return ask_gemini(prompt)
     
