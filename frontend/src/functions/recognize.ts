@@ -1,5 +1,5 @@
 export const recognize = async (image: string) => {
-    const response = await fetch('http://localhost:5000/recognize', {
+    const response = await fetch('http://localhost:5001/recognize', {
         method: 'POST',
         body: JSON.stringify({
             image: image

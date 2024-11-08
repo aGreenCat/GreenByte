@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import json
 #import firebase
@@ -22,7 +22,7 @@ def extract_data():
             return jsonify({"error": "No image provided"}), 400
         
         food_item = recognize(image_url)
-        return jsonify({"food_name": food_name})
+        return jsonify({"food_name": food_item})
     
     #TODO: Once the Claude/Gemini Logic to handle the inputs is created, finish this endpoint.
 
