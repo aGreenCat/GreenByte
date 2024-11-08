@@ -9,8 +9,11 @@ export type FoodDataType = {
 	//define field types here
 }
 
+export type CaptureType = 'capture' | 'upload';
+
 export type CapturerProps = {
-	updateFoodData: (newFoodData: FoodDataType) => void
+	updateFoodData: (newFoodData: FoodDataType) => void,
+	version: CaptureType,
 }
 
 const Capturer = (props : CapturerProps) => {
@@ -42,13 +45,13 @@ const Capturer = (props : CapturerProps) => {
 
     const recognizePhoto = async (buffer : string) => {
         if (buffer === null) {
-            alert('Error: No photo buffer');
+            console.error('Error: No photo buffer');
             return;
         }
 
         recognize(buffer).then(response => {
             if (response.error) {
-                alert('Error: ' + response.error);
+                console.error('Error: ' + response.error);
             } else {
 				console.log(response);
                 props.updateFoodData(response);
@@ -58,7 +61,6 @@ const Capturer = (props : CapturerProps) => {
 
     return (
         <>
-            <h1>GreenBytes</h1>
             <Camera ref={camera} errorMessages={defaultErrorMessages} aspectRatio={1}/>
             <button
                 onClick={handleSubmitPhoto}
@@ -67,7 +69,7 @@ const Capturer = (props : CapturerProps) => {
             <input type="file" accept="image/*"
                onChange={async e=> {
                    if (!e.currentTarget.files) {
-                       alert('Error: No file selected');
+                       console.error('Error: No file selected');
                        return
                    }
 
@@ -75,7 +77,7 @@ const Capturer = (props : CapturerProps) => {
                    const photoBuffer = await toBase64(photo);
 
                    if (typeof photoBuffer !== 'string') {
-                       alert('Error: File could not be converted to buffer');
+                       console.error('Error: File could not be converted to buffer');
                        return;
                    }
 
