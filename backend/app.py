@@ -6,13 +6,13 @@ import json
 from food_recognition import recognize
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/', methods=['GET'])
 def get_data():
     return json.loads('{"message":"Hello World"}')
 
-@app.route('/recognize', methods=["POST"])
+@app.route('/recognize', methods=["POST", "GET"])
 def extract_data():
     try:
         data = request.get_json()
@@ -32,4 +32,4 @@ def extract_data():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5001)
+    app.run(host="0.0.0.0", port=5000)
