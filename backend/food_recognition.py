@@ -10,7 +10,7 @@ client = InferenceClient(api_key=api_key)
 # image = open(image_url, "rb").read()
 # image = "data:image/jpeg;base64," + base64.b64encode(image).decode("utf-8")
 
-def food_recogition(image_url):
+def recognize(image_url):
     # Define the messages structure for the API request
     messages = [
         {
