@@ -7,7 +7,7 @@ import gemini
 from food_recognition import recognize
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/', methods=['GET'])
 def get_data():
