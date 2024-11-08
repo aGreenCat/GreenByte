@@ -12,7 +12,7 @@ CORS(app)
 def get_data():
     return json.loads('{"message":"Hello World"}')
 
-@app.route('/food_recognition', methods=["POST"])
+@app.route('/recognize', methods=["POST"])
 def extract_data():
     try:
         data = request.get_json()
@@ -32,4 +32,4 @@ def extract_data():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5001)
