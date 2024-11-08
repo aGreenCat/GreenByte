@@ -71,16 +71,18 @@ const Capturer = (props : CapturerProps) => {
     return (
         <>
 			{props.version === 'capture'
-				? <div>
+				? <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1em'}}>
 					<h2>Capture Image</h2>
 
-					<Camera ref={camera} errorMessages={defaultErrorMessages} aspectRatio={1}/>
+					<div style={{maxWidth: '600px', width: '100%'}} >
+						<Camera ref={camera} errorMessages={defaultErrorMessages} aspectRatio={4/3}/>
+					</div>
 					<button onClick={handleTakePhoto}>Take Photo</button>
 				</div>
 				: <div>
 					<h2>Upload Image</h2>
 
-					<input id="upload" type="file" accept="image/*"
+					<input id="upload" style={{paddingTop: '2em', paddingBottom: '2em'}} type="file" accept="image/*"
 						onChange={async (event) => {
 							if (event.target.files === null) {
 								return;

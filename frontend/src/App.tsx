@@ -11,15 +11,21 @@ function App() {
 		<>
 			<h1>GreenBytes</h1>
 			{foodData 
-				? <div>
+				? <div className='main'>
 					<p>Food: {foodData.food_name}</p>	
 
 					<button onClick={() => {
 						setFoodData(null);
 					}}>Submit Another</button>
 				</div>
-				: <Capturer updateFoodData={setFoodData} version={version}/>
+				: <div className='main'>
+					<Capturer updateFoodData={setFoodData} version={version}/>
+				</div>
 			}
+
+			<button onClick={() => {
+				setVersion(version === 'capture' ? 'upload' : 'capture');
+			}}>Switch to {version === 'capture' ? 'Upload' : 'Capture'}</button>
 		</>
 	)
 }
