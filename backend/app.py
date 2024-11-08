@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import json
+import gemini
 #import firebase
 
 from food_recognition import recognize
@@ -12,8 +13,8 @@ CORS(app)
 def get_data():
     return json.loads('{"message":"Hello World"}')
 
-@app.route('/recognize', methods=["POST"])
-def extract_data():
+@app.route('/recognize', methods=["GET", "POST"])
+def extract_food_data():
     try:
         data = request.get_json()
         image_url = data.get('image')
@@ -22,12 +23,13 @@ def extract_data():
             return jsonify({"error": "No image provided"}), 400
         
         food_item = recognize(image_url)
-        return jsonify({"food_name": food_item})
+        food_analysis = gemini.get_food_data(food_item)
+
+        return json.loads( food_analysis )
     
     #TODO: Once the Claude/Gemini Logic to handle the inputs is created, finish this endpoint.
-
-    
     except Exception as e:
+        print("WE GOT COOKED")
         return jsonify({"error": str(e)}), 500
 
 

@@ -29,9 +29,13 @@ def get_food_data( food_description ):
 
         I want you to return something to me in the exact JSON body format that I request.
         Your response should comprise of only the JSON body that I request and nothing other than it.
+        DO NOT include the triple tricks to make it a code block.
+        I want it to simply be a string in json format which i can do json.loads() on
+        Make sure there are no extra spaces
 
         Here is the format below, and I will provide descriptions of each individual attribute in the JSON body
         {{ 
+            "food_name": string, // the name of the food your were assigned to classify
             "calories_lower" : int, // lower bound for calorie estimation range
             "calories_upper" : int, // upper bound for calorie estimation range
             "carbon_emissions": int, // the number of grams of carbon dioxide emissions
@@ -52,7 +56,7 @@ def get_food_data( food_description ):
     
 
 def main():
-    print( get_food_data("Steak") )
+    print( json.loads( get_food_data("steak") ) )
 
 if __name__ == "__main__":
     main()
