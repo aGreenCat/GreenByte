@@ -51,7 +51,8 @@ def get_food_data( food_description ):
         }}
         
     '''
-    print(json.loads(ask_gemini(prompt)))
+    # print(json.loads(ask_gemini(prompt)))
+    return ask_gemini(prompt)
     
     
 
