@@ -14,20 +14,29 @@
 }
 
 .modal-content {
-    background-color: white;
-    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    padding: 200px;
     border-radius: 10px;
     width: 80%;
     max-width: 500px;
     text-align: center;
 }
 
-.close-btn {
+.about-text {
+    color: blue; /* Change 'blue' to any color you want */
+  }
+
+  .about-header{
+    color: red;
+  }
+
+/* close button stuff */
+.close-btn { 
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: red;
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 50%;
     padding: 5px 10px;

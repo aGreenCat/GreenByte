@@ -1,9 +1,30 @@
-import React, {useState, useRef} from 'react';
+import {useState, useRef} from 'react';
 import {Camera, CameraType} from 'react-camera-pro';
 import {recognize} from "../functions/recognize.ts";
 import {toBase64} from "../functions/toBase64.ts";
 
-const Capturer: React.FC = () => {
+export type FoodDataType = {
+	food_name: string,
+	error: string | null,
+    calories_lower: number,
+    calories_upper: number,
+    carbon_emissions: number,
+    gallons_per_item_produced: number,
+    grams_of_protein: number,
+    grams_of_carbs: number,
+    grams_of_fats: number,
+    calories_from_protein: number,
+    calories_from_carbs: number,
+    calories_from_fats: number,
+    healthy: boolean,
+    environmentally_friendly: boolean
+}
+
+export type CapturerProps = {
+	updateFoodData: (newFoodData: FoodDataType) => void
+}
+
+const Capturer = (props : CapturerProps) => {
     const [photoUploadBuffer, setPhotoUploadBuffer] = useState<string | null>(null);
     const camera = useRef<CameraType | null>(null);
 
@@ -21,6 +42,7 @@ const Capturer: React.FC = () => {
             }
 
             const photo = camera.current.takePhoto();
+
             if (typeof photo === 'string') {
                 recognizePhoto(photo);
             }
@@ -39,7 +61,8 @@ const Capturer: React.FC = () => {
             if (response.error) {
                 alert('Error: ' + response.error);
             } else {
-                console.log(response);
+				console.log(response);
+                props.updateFoodData(response);
             }
         });
     }

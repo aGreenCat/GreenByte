@@ -14,8 +14,8 @@ const Modal: React.FC<ModalProps> = ({ showModal, closeModal }) => {
         <div className="modal-overlay">
             <div className="modal-content">
                 <button className="close-btn" onClick={closeModal}>X</button>
-                <h2>About Me</h2>
-                <p>This is the About Me section. Add your content here.</p>
+                <h2 className="about-header">About Me</h2>
+                <p className="about-text">This is the About Me section. Add your content here.</p>
             </div>
         </div>
     );
