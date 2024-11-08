@@ -41,7 +41,8 @@ def read_environmentally_friendly():
     return ref.get()    
 
 def main():
-    ref = db.reference('/hello')
+    update_total( "gala apple" )
+
 
 if __name__ == "__main__":
     main()
