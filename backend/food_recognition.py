@@ -5,6 +5,10 @@ from huggingface_hub import InferenceClient
 with open('keys/food.txt', 'r') as file:
     api_key = file.read().strip()
 client = InferenceClient(api_key=api_key)
+
+with open ('prompt/llama_prompt.txt', 'r') as file:
+    llama_prompt = file.read().strip()
+
 #
 # image_url = "pizza.jpg"
 # image = open(image_url, "rb").read()
@@ -24,7 +28,7 @@ def recognize(image_url):
                 },
                 {
                     "type": "text",
-                    "text": "Provide your best guess as to the name of this food dish. Only return the name."
+                    "text": llama_prompt,
                 },
 
             ]
