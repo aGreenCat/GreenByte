@@ -3,7 +3,7 @@ from flask_cors import CORS
 import json
 #import firebase
 
-import food_recognition
+from food_recognition import recognize
 
 app = Flask(__name__)
 CORS(app)
