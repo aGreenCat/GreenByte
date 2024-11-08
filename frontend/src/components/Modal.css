@@ -14,20 +14,22 @@
 }
 
 .modal-content {
-    background-color: rgb(255, 255, 255);
-    padding: 200px;
-    border-radius: 10px;
+    background-color: rgb(172, 223, 166);
+    padding: 20px;
+    border-radius: 8px;
     width: 80%;
-    max-width: 500px;
+    max-width: 5000px;
+    min-height: 500px; /* Adjust height for thickness */
     text-align: center;
-}
+  }
 
 .about-text {
-    color: blue; /* Change 'blue' to any color you want */
+    color: rgb(0, 0, 0); /* Change 'blue' to any color you want */
+    
   }
 
   .about-header{
-    color: red;
+    color: rgb(0, 0, 0);
   }
 
 /* close button stuff */

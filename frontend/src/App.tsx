@@ -4,6 +4,8 @@ import Capturer from "./components/Capturer.tsx";
 import { FoodDataType } from "./components/Capturer.tsx";
 import FoodDataDisplay from './components/FoodDataDisplay.tsx';
 import Modal from './components/Modal.tsx';
+import Banner from './components/Banner';
+
 
 function App() {
 	const [foodData, setFoodData] = useState<FoodDataType | null>(null);
@@ -14,6 +16,9 @@ function App() {
 
 	return (
 		<>
+
+    <Banner onAboutMeClick={openModal} />  {/* Pass openModal to Banner */}
+
 			{foodData 
 				? <FoodDataDisplay foodData={foodData} />  // Use FoodDataDisplay component here
 				: <Capturer updateFoodData={setFoodData} />
@@ -22,8 +27,6 @@ function App() {
 			<p>
 				foodData: {foodData ? JSON.stringify(foodData) : 'null'}
 			</p>
-      {/* Button to trigger modal */}
-      <button onClick={openModal}>Show About Me</button>
 
       {/* Modal component that shows based on showModal state */}
       {showModal && <Modal showModal={showModal} closeModal={closeModal} />}
