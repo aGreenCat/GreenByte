@@ -21,7 +21,7 @@ def extract_data():
         if not image_url:
             return jsonify({"error": "No image provided"}), 400
         
-        food_item = food_recognition(image_url)
+        food_item = recognize(image_url)
         return jsonify({"food_name": food_name})
     
     #TODO: Once the Claude/Gemini Logic to handle the inputs is created, finish this endpoint.
