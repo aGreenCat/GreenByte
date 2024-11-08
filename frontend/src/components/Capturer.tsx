@@ -6,7 +6,18 @@ import {toBase64} from "../functions/toBase64.ts";
 export type FoodDataType = {
 	food_name: string,
 	error: string | null,
-	//define field types here
+    calories_lower: number,
+    calories_upper: number,
+    carbon_emissions: number,
+    gallons_per_item_produced: number,
+    grams_of_protein: number,
+    grams_of_carbs: number,
+    grams_of_fats: number,
+    calories_from_protein: number,
+    calories_from_carbs: number,
+    calories_from_fats: number,
+    healthy: boolean,
+    environmentally_friendly: boolean
 }
 
 export type CapturerProps = {

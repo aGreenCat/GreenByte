@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css'
 import Capturer from "./components/Capturer.tsx";
 import { FoodDataType } from "./components/Capturer.tsx";
+import FoodDataDisplay from './components/FoodDataDisplay.tsx';
 
 function App() {
 	const [foodData, setFoodData] = useState<FoodDataType | null>(null);
@@ -9,10 +10,7 @@ function App() {
 	return (
 		<>
 			{foodData 
-				? <div>
-					<h1>GreenBytes</h1>
-					<p>Food: {foodData.food_name}</p>	
-				</div>
+				? <FoodDataDisplay foodData={foodData} />  // Use FoodDataDisplay component here
 				: <Capturer updateFoodData={setFoodData} />
 			}
 
