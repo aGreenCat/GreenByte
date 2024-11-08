@@ -1,0 +1,5 @@
+google-generativeai
+huggingface-hub
+Flask
+Flask-Cors
+Flask-RESTful
