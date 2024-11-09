@@ -2,8 +2,6 @@ import React from 'react';
 import './Banner.css';
 import clearGB from '../assets/clearGB.png'; // Adjust the file path and extension as needed
 
-
-
 interface BannerProps {
   onAboutMeClick?: () => void ;
   onLeaderboardClick?: () => void;

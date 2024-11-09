@@ -1,6 +1,10 @@
-// components/FoodDataDisplay.tsx
 import React from 'react';
 import { FoodDataType } from "./Capturer.tsx";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHeart, faLeaf } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
+
+library.add(faHeart, faLeaf, farHeart);
 
 interface FoodDataDisplayProps {
     foodData: FoodDataType;
@@ -8,11 +12,18 @@ interface FoodDataDisplayProps {
 
 const FoodDataDisplay: React.FC<FoodDataDisplayProps> = ({ foodData }) => {
     return (
-        <div className="bg-green-50 p-6 rounded-lg max-w-md mx-auto shadow-md mt-6">
+        <div
+			className='flex-1 flex flex-col align-center gap-4'
+        >
             <h1 className="text-2xl font-bold text-green-700 text-center mb-4">GreenBytes</h1>
-            <p className="text-lg font-semibold text-green-800 text-center mb-4">
+            <p className="text-xl font-semibold text-green-800 text-center mb-4">
                 Food: <span className="font-normal">{foodData.food_name}</span>
             </p>
+
+			<div className="flex flex-row justify-center">
+				<img className="max-w-[600x] rounded-md" src={foodData.photo} alt={foodData.food_name} />
+			</div>
+
             {foodData.error && (
                 <p className="text-red-600 text-center mb-4">Error: {foodData.error}</p>
             )}
@@ -37,8 +48,16 @@ const FoodDataDisplay: React.FC<FoodDataDisplayProps> = ({ foodData }) => {
                     <p>Calories from Fats: {foodData.calories_from_fats}</p>
                 </div>
                 <div className="bg-green-100 p-4 rounded-md col-span-2 text-center">
-                    <p>Healthy: {foodData.healthy ? "Yes" : "No"}</p>
-                    <p>Eco-Friendly: {foodData.environmentally_friendly ? "Yes" : "No"}</p>
+                    <p>Healthy: {foodData.healthy ? (
+                        <span>Yes <i className="fa-solid fa-heart text-red-500"></i></span>
+                    ) : (
+                        <span>No <i className="fa-regular fa-heart text-gray-400"></i></span>
+                    )}</p>
+                    <p>Eco-Friendly: {foodData.environmentally_friendly ? (
+                        <span>Yes <i className="fa-regular fa-leaf text-green-500"></i></span>
+                    ) : (
+                        <span>No <i className="fa-regular fa-leaf text-gray-400"></i></span>
+                    )}</p>
                 </div>
             </div>
         </div>

@@ -7,7 +7,6 @@ import Modal from './components/Modal.tsx';
 import Banner from './components/Banner';
 import LeaderboardModal from './components/LeaderboardModal.tsx'
 
-
 function App() {
 	const [foodData, setFoodData] = useState<FoodDataType | null>(null);
 	const [version, setVersion] = useState<CaptureType>('capture');
