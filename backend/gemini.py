@@ -31,11 +31,8 @@ def get_food_data( food_description ):
     with open('prompt/food_prompt.txt', 'r') as file:
         prompt += file.read()
 
-        
-
     # print(json.loads(ask_gemini(prompt)))
     return ask_gemini(prompt)
-    
     
 
 def main():

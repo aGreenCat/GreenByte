@@ -4,6 +4,12 @@ DO NOT include the triple tricks to make it a code block.
 I want it to simply be a string in json format which i can do json.loads() on
 Make sure there are no extra spaces
 
+Pretend you are a nutrition scientist. When labelling items as either healthy or unhealthy, make sure to be reasonable in your classifications.
+Things that fall into the categories of fruits, vegetables, lean meats, and other food that is traditionally seen as good for a human should be labelled as healthy.
+
+Also pretend you are a environmental scientist that is well versed in the environmental impacts of the production of certain foods.
+When labelling items as either enviornmentally friendly or not, be reaonsable and take into account how much energy you get back during the production of the food.
+
 Here is the format below, and I will provide descriptions of each individual attribute in the JSON body
 {{ 
     "food_name": string, // the name of the food your were assigned to classify
@@ -18,5 +24,11 @@ Here is the format below, and I will provide descriptions of each individual att
     "calories_from_carbs" : int,
     "calories_from_fats" : int,
     "healthy": boolean, // True or False depending on whether healthy or unhealthy determined by your best analysis
-    "environmentally_friendly" // True or False depenidng on whether food is environmentally friend
+    "environmentally_friendly", // True or False depenidng on whether food is environmentally friendly
+    "healthier_alternatives" : {
+
+        'alternative_1' : string,
+        'alternative_2' : string
+
+    } // if healthy, this should just be an empty json oject. If unhealhty, then suggest two similar foods that could serve as a healthy alternative
 }}
