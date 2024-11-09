@@ -14,9 +14,9 @@ const Modal: React.FC<LeaderboardModalProps> = ({ showLeaderboardModal, closeLea
         <div className="Lmodal-overlay">
             <div className="Lmodal-content">
                 <button className="Lclose-btn" onClick={closeLeaderboardModal}>X</button>
-                <h2 className="Labout-header">About GreenByte</h2>
+                <h2 className="Labout-header">Leaderboard</h2>
                 <ul className="Labout-text">
-                    <li>imsmelly</li>
+                    <li>Mus is the goat</li>
                 </ul>
             </div>
         </div>

@@ -2,7 +2,7 @@
 .banner {
     position: fixed; /* Positions the banner at the top */
     top: 0;
-    left: 0;
+    left: 0px;
     width: 100%; /* Makes it span the full width of the screen */
     display: flex;
     align-items: center;
@@ -15,6 +15,8 @@
   
   .banner-title {
     font-size: 1.5rem;
+    flex: 1;
+    text-align: left;
   }
   
   .about-me-button {
@@ -32,7 +34,6 @@
 
   .leaderboard-button{
 
-    margin-right: 50px; /* Adds space between button and the right edge */
     background-color: green; /* Optional button color */
     color: rgb(198, 222, 174);
     padding: 8px 16px;
