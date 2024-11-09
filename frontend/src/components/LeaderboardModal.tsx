@@ -15,7 +15,7 @@ const Modal: React.FC<LeaderboardModalProps> = ({ showLeaderboardModal, closeLea
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="bg-green-100 p-8 rounded-md w-full max-w-4xl h-[600px] relative">
                 <button
-                    className="absolute top-3 right-3 text-gray-1000 hover:text-gray-700"
+                    className="absolute top-3 right-3 text-gray-500 hover:text-black bg-transparent"
                     onClick={closeLeaderboardModal}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
