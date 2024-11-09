@@ -41,7 +41,7 @@ const FoodDataDisplay: React.FC<FoodDataDisplayProps> = ({ foodData }) => {
                     <p>Calories (Upper): {foodData.calories_upper}</p>
                 </div>
                 <div className="data-box bg-green-100 p-3 rounded-md">
-                    <p>Carbon Emissions: {foodData.carbon_emissions} g CO₂</p>
+                    <p>Carbon Emissions: {foodData.carbon_emissions} gg CO₂</p>
                     <p>Gallons per Item: {foodData.gallons_per_item_produced}</p>
                 </div>
                 <div className="data-box bg-green-100 p-3 rounded-md">
