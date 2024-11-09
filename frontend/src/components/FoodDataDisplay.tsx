@@ -13,11 +13,20 @@ interface FoodDataDisplayProps {
 const FoodDataDisplay: React.FC<FoodDataDisplayProps> = ({ foodData }) => {
     return (
         <div className="food-data-display flex flex-col items-center gap-4">  {/* Centered content */}
-            <h1 className="text-2xl font-bold text-green-700 text-center mb-4">GreenBytes</h1>
+            <div className="flex flex-col items-center">  {/* Name on top */}
+                <h1 className="text-2xl font-bold text-green-700 mb-4">GreenBytes</h1>
+                <p className="text-xl font-semibold text-green-800 mb-2">
+    {foodData.food_name
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(" ")
+    }
+</p>
+            </div>
 
             <div className="flex justify-center">
                 <img
-                    className={"photo rounded-md max-w-[200px] hover:scale-110 transition duration-200 ease-in-out"}
+                    className="photo rounded-md max-w-[200px] hover:scale-110 transition duration-200 ease-in-out"
                     src={foodData.photo}
                     alt={foodData.food_name}
                 />
@@ -28,25 +37,25 @@ const FoodDataDisplay: React.FC<FoodDataDisplayProps> = ({ foodData }) => {
             )}
 
             <div className="grid grid-cols-2 gap-4">
-                <div className="data-box bg-green-100 p-4 rounded-md">
+                <div className="data-box bg-green-100 p-3 rounded-md">
                     <p>Calories (Lower): {foodData.calories_lower}</p>
                     <p>Calories (Upper): {foodData.calories_upper}</p>
                 </div>
-                <div className="data-box bg-green-100 p-4 rounded-md">
+                <div className="data-box bg-green-100 p-3 rounded-md">
                     <p>Carbon Emissions: {foodData.carbon_emissions} kg CO₂</p>
                     <p>Gallons per Item: {foodData.gallons_per_item_produced}</p>
                 </div>
-                <div className="data-box bg-green-100 p-4 rounded-md">
+                <div className="data-box bg-green-100 p-3 rounded-md">
                     <p>Protein: {foodData.grams_of_protein}g</p>
                     <p>Carbs: {foodData.grams_of_carbs}g</p>
                     <p>Fats: {foodData.grams_of_fats}g</p>
                 </div>
-                <div className="data-box bg-green-100 p-4 rounded-md">
+                <div className="data-box bg-green-100 p-2 rounded-md">
                     <p>Calories from Protein: {foodData.calories_from_protein}</p>
                     <p>Calories from Carbs: {foodData.calories_from_carbs}</p>
                     <p>Calories from Fats: {foodData.calories_from_fats}</p>
                 </div>
-                <div className="data-box bg-green-100 p-4 rounded-md col-span-2 text-center">
+                <div className="data-box bg-green-100 p-1 rounded-md col-span-2 text-center">
                     <p>Healthy: {foodData.healthy ? (
                         <span>Yes <i className="fa-solid fa-heart text-red-500"></i></span>
                     ) : (
