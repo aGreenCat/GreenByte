@@ -1,56 +1,56 @@
 /* src/components/Modal.css */
 
-.Lmodal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+.lmodal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.Lmodal-content {
-    background-color: rgb(172, 223, 166);
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 5000px;
-    min-height: 500px; /* Adjust height for thickness */
-    text-align: center;
-  }
+.lmodal-content {
+  background-color: rgb(172, 223, 166);
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 5000px;
+  min-height: 500px; /* Adjust height for thickness */
+  text-align: center;
+}
 
-.Labout-text {
-    color: rgb(0, 0, 0); /* Change 'blue' to any color you want */
-    font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    list-style-type: disc;
-    padding-left: 0; /* Remove padding for bullets */
-    margin-left: 50px; /* Remove margin */
-    text-align: left;
-    line-height: 1.6;
-    
-  }
+.labout-text {
+  color: rgb(0, 0, 0); /* Change 'blue' to any color you want */
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  list-style-type: disc;
+  padding-left: 0; /* Remove padding for bullets */
+  margin-left: 50px; /* Remove margin */
+  text-align: left;
+  line-height: 1.6;
+  
+}
 
-  .Labout-header{
-    color: rgb(0, 0, 0);
-    font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    
-  }
+.labout-header{
+  color: rgb(0, 0, 0);
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
 
 /* close button stuff */
-.Lclose-btn { 
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 50%;
-    padding: 5px 10px;
-    cursor: pointer;
+.lclose-btn { 
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 50%;
+  padding: 5px 10px;
+  cursor: pointer;
 }

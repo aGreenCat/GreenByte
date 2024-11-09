@@ -14,8 +14,7 @@ const FoodDataDisplay: React.FC<FoodDataDisplayProps> = ({ foodData }) => {
     return (
         <div className="food-data-display flex flex-col items-center gap-4">  {/* Centered content */}
             <div className="flex flex-col items-center">  {/* Name on top */}
-                <h1 className="text-2xl font-bold text-green-700 mb-4">GreenBytes</h1>
-                <p className="text-xl font-semibold text-green-800 mb-2">
+                <p className="text-4xl font-semibold text-green-800 mb-2">
     {foodData.food_name
         .split(" ")
         .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
@@ -26,7 +25,7 @@ const FoodDataDisplay: React.FC<FoodDataDisplayProps> = ({ foodData }) => {
 
             <div className="flex justify-center">
                 <img
-                    className="photo rounded-md max-w-[200px] hover:scale-110 transition duration-200 ease-in-out"
+                    className="photo rounded-md max-w-[400px] hover:scale-110 transition duration-300 ease-in-out"
                     src={foodData.photo}
                     alt={foodData.food_name}
                 />
