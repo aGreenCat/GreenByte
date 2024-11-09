@@ -12,9 +12,38 @@ def find_top_k_total( k ):
     
     res = []
     while heap:
-        _ , name =  heapq.heappop(heap)
-        res.append( name )
+        count , name =  heapq.heappop(heap)
+        res.append( [name,count] )
+    return res[::-1]
+
+def find_top_k_healthy( k ):
+    healthy_food = firebase_helpers.read_healthy()
+    heap = [] # min heap, stores k elements and if size exceeds k, then pop elements
+
+    for food, count in healthy_food.items():
+        heapq.heappush( heap, (count, food) )
+        if len(heap) > k:
+            heapq.heappop( heap )
     
+    res = []
+    while heap:
+        count , name =  heapq.heappop(heap)
+        res.append( [name,count] )
+    return res[::-1]
+
+def find_top_k_environmentally_friendly( k ):
+    environment_food = firebase_helpers.read_environmentally_friendly()
+    heap = [] # min heap, stores k elements and if size exceeds k, then pop elements
+
+    for food, count in environment_food.items():
+        heapq.heappush( heap, (count, food) )
+        if len(heap) > k:
+            heapq.heappop( heap )
+    
+    res = []
+    while heap:
+        count , name =  heapq.heappop(heap)
+        res.append( [name,count] )
     return res[::-1]
 
 def find_top_k_healthy( k ):
@@ -51,7 +80,9 @@ def find_top_k_environmentally_friendly( k ):
 
 
 def main():
-    print( find_top_k_total(3) )
+    total_leaderboard = find_top_k_total(3)
+    find_top_k_healthy(3)
+    print( find_top_k_environmentally_friendly(3) )
 
 if __name__ == "__main__":
     main()
