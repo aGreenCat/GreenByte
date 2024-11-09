@@ -21,6 +21,16 @@ GreenByte is built using a combination of modern web development technologies:
 
 - **Image Recognition API with LLaMA Model and Hugging Face Hub:** To analyze uploaded food images, we integrated the LLaMA model (a state-of-the-art model for image recognition) hosted on the Hugging Face Hub. This model processes images to detect and label food items. It is highly accurate in identifying a wide range of foods and ingredients. The recognized food data is then cross-referenced with our nutritional and environmental data sources to provide users with nutritional content and CO2 emissions information. By leveraging the Hugging Face Hub, we benefit from the pre-trained models and streamlined integration for food image analysis.
 
+## Contributions
+**Nakib's Tasks:** Designed the leaderboard logic, integrated APIs for dynamic data retrieval, and managed database connections for efficient data storage. Additionally, successfully deployed the project for production use.
+
+**Muslim's Tasks:** Developed front end using React with TypeScript to create an interactive user experience. Worked on CSS styling and Figma mock-up.
+
+**Tedd's Tasks:** Led and designed the core frontend logic using React with TypeScript. Worked on CSS styling and Figma mock-up along with Muslim.
+
+**Ishmam's Tasks:** Created the image recognition endpoint and leaderboard request function from FirebaseDB. Utilized TypeScript to build the food data display and implement the dynamic leaderboard interface.
+
+
 ## Challenges we ran into
 **Image Recognition Accuracy:** One of the primary challenges was accurately identifying food items from images. Food can look very different depending on lighting, angles, and preparation styles, and the accuracy of the recognition system was impacted by these variations. It took time to optimize the image recognition process and ensure the system could handle real-world conditions like varying plate sizes and food arrangements.
 
