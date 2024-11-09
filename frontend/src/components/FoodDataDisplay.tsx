@@ -15,17 +15,17 @@ const FoodDataDisplay: React.FC<FoodDataDisplayProps> = ({ foodData }) => {
         <div className="food-data-display flex flex-col items-center gap-4">  {/* Centered content */}
             <div className="flex flex-col items-center">  {/* Name on top */}
                 <p className="text-4xl font-semibold text-green-800 mb-2">
-    {foodData.food_name
-        .split(" ")
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-        .join(" ")
-    }
-</p>
+					{foodData.food_name
+						.split(" ")
+						.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+						.join(" ")
+					}
+				</p>
             </div>
 
             <div className="flex justify-center">
                 <img
-                    className="photo rounded-md max-w-[400px] hover:scale-110 transition duration-300 ease-in-out"
+                    className="photo max-w-[400px] max-sm:w-4/5 rounded-md"
                     src={foodData.photo}
                     alt={foodData.food_name}
                 />
