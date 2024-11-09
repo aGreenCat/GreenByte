@@ -25,11 +25,21 @@
 
 .about-text {
     color: rgb(0, 0, 0); /* Change 'blue' to any color you want */
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: disc;
+    padding-left: 0; /* Remove padding for bullets */
+    margin-left: 50px; /* Remove margin */
+    text-align: left;
+    line-height: 1.6;
     
   }
 
   .about-header{
     color: rgb(0, 0, 0);
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    
   }
 
 /* close button stuff */

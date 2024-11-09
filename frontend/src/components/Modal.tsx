@@ -15,7 +15,13 @@ const Modal: React.FC<ModalProps> = ({ showModal, closeModal }) => {
             <div className="modal-content">
                 <button className="close-btn" onClick={closeModal}>X</button>
                 <h2 className="about-header">About GreenByte</h2>
-                <p className="about-text">Hi my name is Muslim hussaini.</p>
+                <ul className="about-text">
+                    <li>Upload or take a picture of food for analysis.</li>
+                    <li>Get calorie content and macronutrient breakdown.</li>
+                    <li>Understand the environmental impact of your food choices.</li>
+                    <li>Receive an assessment of your food’s healthiness.</li>
+                    <li>Promotes healthier, eco-conscious eating habits.</li>
+                </ul>
             </div>
         </div>
     );

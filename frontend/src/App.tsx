@@ -18,7 +18,9 @@ function App() {
 	
 	return (
 		<>
-			<Banner onAboutMeClick={openModal} />  {/* Pass openModal to Banner */}
+			  {/* Conditionally render the Banner component only if foodData is null */}
+      {!foodData && <Banner onAboutMeClick={openModal} />} {/* Banner appears only if no food data is submitted */}
+
 
 			{foodData 
 				? <div className='main'>

@@ -1,3 +1,4 @@
+
 .banner {
     position: fixed; /* Positions the banner at the top */
     top: 0;
@@ -6,10 +7,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 0px 20px;
     background-color: #ace1a2;
     color: green;
-    z-index: 1000; /* Keeps the banner above other elements */
+    z-index: 1000px; /* Keeps the banner above other elements */
   }
   
   .banner-title {
@@ -17,7 +18,7 @@
   }
   
   .about-me-button {
-    margin-right: 50px; /* Adds space between button and the right edge */
+    margin-right: 0px; /* Adds space between button and the right edge */
     background-color: green; /* Optional button color */
     color: rgb(198, 222, 174);
     padding: 8px 16px;
@@ -27,5 +28,23 @@
   
   .about-me-button:hover {
     background-color: #0056b3;
+  }
+
+  .leaderboard-button{
+
+    margin-right: 50px; /* Adds space between button and the right edge */
+    background-color: green; /* Optional button color */
+    color: rgb(198, 222, 174);
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+
+
+  }
+
+  .logo{
+
+    filter: hue-rotate(90deg) saturate(2) brightness(0.8);
+
   }
   
