@@ -1,6 +1,6 @@
-import { FoodDataType } from "../components/Capturer";
+import { LeaderboardStats } from "../components/LeaderboardModal";
 
-export const extractLeaderboard : (image: string) => Promise<FoodDataType> = async () => {
+export const extractLeaderboard: () => Promise<LeaderboardStats> = async () => {
     const response = await fetch('http://localhost:5001/leaderboard', {
         method: 'GET',
         headers: {
@@ -8,5 +8,9 @@ export const extractLeaderboard : (image: string) => Promise<FoodDataType> = asy
         }
     });
 
-    return await response.json();
+    if (!response.ok) {
+        throw new Error(`Failed to fetch leaderboard data: ${response.statusText}`);
+    }
+
+    return await response.json() as LeaderboardStats;
 }
