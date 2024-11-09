@@ -19,7 +19,7 @@ function App() {
 		<>
 			{/* Conditionally render the Banner component only if foodData is null */}
       		{!foodData && <Banner onAboutMeClick={openModal} />} {/* Banner appears only if no food data is submitted */}
-			
+
 			{foodData 
 				? <div className='main'>
 					<FoodDataDisplay foodData={foodData} /> 
@@ -33,7 +33,7 @@ function App() {
 					<Capturer updateFoodData={setFoodData} version={version}/>
 				</div>
 
-				<button onClick={() => {
+				<button style={{alignSelf: "center", backgroundColor: "#cdcdcd"}} onClick={() => {
 					setVersion(version === 'capture' ? 'upload' : 'capture');
 				}}>Switch to {version === 'capture' ? 'Upload' : 'Capture'}</button>
 				</>
