@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { LeaderboardStats } from './LeaderboardModal';
 import { extractLeaderboard } from '../functions/extractLeaderboard';
 
