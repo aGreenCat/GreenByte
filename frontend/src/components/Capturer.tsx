@@ -94,7 +94,6 @@ const Capturer = (props : CapturerProps) => {
         <>
 			{props.version === 'capture'
 				? <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1em'}}>
-					<h2>Capture Image</h2>
 
 					<div style={{maxWidth: '600px', width: '100%'}} >
 						<Camera ref={camera} errorMessages={defaultErrorMessages} aspectRatio={4/3}/>
