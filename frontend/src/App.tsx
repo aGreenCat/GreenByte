@@ -22,7 +22,7 @@ function App() {
 
 			{foodData 
 				? <div className='main'>
-					<FoodDataDisplay foodData={foodData} />  // Use FoodDataDisplay component here
+					<FoodDataDisplay foodData={foodData} /> 
 
 					<button onClick={() => {
 						setFoodData(null);
