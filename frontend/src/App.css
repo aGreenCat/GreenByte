@@ -18,6 +18,13 @@
   align-items: stretch;
 }
 
+body {
+  background-color: white;
+  color: black; /* Optional: Sets the text color to black for readability */
+  margin: 0; /* Optional: Remove default margin */
+  padding: 0; /* Optional: Remove default padding */
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

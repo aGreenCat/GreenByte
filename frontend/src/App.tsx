@@ -2,30 +2,45 @@ import { useState } from 'react';
 import './App.css'
 import Capturer, {CaptureType} from "./components/Capturer.tsx";
 import { FoodDataType } from "./components/Capturer.tsx";
+import FoodDataDisplay from './components/FoodDataDisplay.tsx';
+import Modal from './components/Modal.tsx';
+import Banner from './components/Banner';
+
 
 function App() {
 	const [foodData, setFoodData] = useState<FoodDataType | null>(null);
 	const [version, setVersion] = useState<CaptureType>('upload');
+
+	const [showModal, setShowModal] = useState(false); // State to track modal visibility
+
+	const openModal = () => setShowModal(true); // Function to open the modal
+	const closeModal = () => setShowModal(false); // Function to close the modal
 	
 	return (
 		<>
-			<h1>GreenBytes</h1>
+			<Banner onAboutMeClick={openModal} />  {/* Pass openModal to Banner */}
+
 			{foodData 
 				? <div className='main'>
-					<p>Food: {foodData.food_name}</p>	
+					<FoodDataDisplay foodData={foodData} />  // Use FoodDataDisplay component here
 
 					<button onClick={() => {
 						setFoodData(null);
 					}}>Submit Another</button>
 				</div>
-				: <div className='main'>
+				: <>
+				<div className='main'>
 					<Capturer updateFoodData={setFoodData} version={version}/>
 				</div>
-			}
 
-			<button onClick={() => {
-				setVersion(version === 'capture' ? 'upload' : 'capture');
-			}}>Switch to {version === 'capture' ? 'Upload' : 'Capture'}</button>
+				<button onClick={() => {
+					setVersion(version === 'capture' ? 'upload' : 'capture');
+				}}>Switch to {version === 'capture' ? 'Upload' : 'Capture'}</button>
+				</>
+			}
+      
+			{/* Modal component that shows based on showModal state */}
+			{showModal && <Modal showModal={showModal} closeModal={closeModal} />}
 		</>
 	)
 }

@@ -1,0 +1,31 @@
+.banner {
+    position: fixed; /* Positions the banner at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Makes it span the full width of the screen */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #ace1a2;
+    color: green;
+    z-index: 1000; /* Keeps the banner above other elements */
+  }
+  
+  .banner-title {
+    font-size: 1.5rem;
+  }
+  
+  .about-me-button {
+    margin-right: 50px; /* Adds space between button and the right edge */
+    background-color: green; /* Optional button color */
+    color: rgb(198, 222, 174);
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .about-me-button:hover {
+    background-color: #0056b3;
+  }
+  
