@@ -9,7 +9,7 @@ import Banner from './components/Banner';
 
 function App() {
 	const [foodData, setFoodData] = useState<FoodDataType | null>(null);
-	const [version, setVersion] = useState<CaptureType>('upload');
+	const [version, setVersion] = useState<CaptureType>('capture');
 
 	const [showModal, setShowModal] = useState(false); // State to track modal visibility
 
@@ -24,7 +24,7 @@ function App() {
 
 			{foodData 
 				? <div className='main'>
-					<FoodDataDisplay foodData={foodData} />  // Use FoodDataDisplay component here
+					<FoodDataDisplay foodData={foodData} /> 
 
 					<button onClick={() => {
 						setFoodData(null);
