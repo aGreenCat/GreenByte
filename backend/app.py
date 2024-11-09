@@ -37,11 +37,7 @@ def extract_food_data():
 
         return food_analysis_json
 
-    
-    #TODO: Once the Claude/Gemini Logic to handle the inputs is created, finish this endpoint.
     except Exception as e:
-        print("WE GOT COOKED")
-        print(e)
         return jsonify({"error": str(e)}), 500
 
 @app.route('/leaderboard', methods=["GET", "POST"])
@@ -51,7 +47,6 @@ def get_leaderboard_stats():
     environment_stats = find_top_k_environmentally_friendly(5)
 
     leaderboard_stats = {"total" : total_stats, "healthy" : healthy_stats, "environment" : environment_stats}
-    print(leaderboard_stats)
     return jsonify(leaderboard_stats)
 
 
