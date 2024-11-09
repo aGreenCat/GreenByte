@@ -29,6 +29,8 @@ export type CapturerProps = {
 
 const Capturer = (props : CapturerProps) => {
     const [photoUploadBuffer, setPhotoUploadBuffer] = useState<string | null>(null);
+	const [loading, setLoading] = useState<boolean>(false);
+
     const camera = useRef<CameraType | null>(null);
 
     const defaultErrorMessages = {
@@ -52,7 +54,8 @@ const Capturer = (props : CapturerProps) => {
         }
 
 		if (typeof photo === 'string') {
-			let response = await recognize(photo)
+			setLoading(true);
+			let response = await recognize(photo);
 			
 			if (response.error) {
 				console.error('Error: ' + response.error);
@@ -60,6 +63,8 @@ const Capturer = (props : CapturerProps) => {
 				console.log(response);
 				props.updateFoodData(response);
 			}
+
+			setLoading(true);
 		}
     }
 
@@ -69,14 +74,16 @@ const Capturer = (props : CapturerProps) => {
 			return;
 		}
 
-        recognize(photoUploadBuffer).then(response => {
-            if (response.error) {
-                console.error('Error: ' + response.error);
-            } else {
-				console.log(response);
-                props.updateFoodData(response);
-            }
-        });
+		setLoading(true);
+        let response = await recognize(photoUploadBuffer)
+		
+		if (response.error) {
+			console.error('Error: ' + response.error);
+		} else {
+			console.log(response);
+			props.updateFoodData(response);
+			setLoading(false);
+		}
     }
 
     return (
@@ -88,7 +95,7 @@ const Capturer = (props : CapturerProps) => {
 					<div style={{maxWidth: '600px', width: '100%'}} >
 						<Camera ref={camera} errorMessages={defaultErrorMessages} aspectRatio={4/3}/>
 					</div>
-					<button onClick={handleTakePhoto}>Take Photo</button>
+					<button onClick={handleTakePhoto}>{loading ? "Loading..." : "Take Photo"}</button>
 				</div>
 				: <div>
 					<h2>Upload Image</h2>

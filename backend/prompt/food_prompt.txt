@@ -5,7 +5,7 @@ I want it to simply be a string in json format which i can do json.loads() on
 Make sure there are no extra spaces
 
 Pretend you are a nutrition scientist. When labelling items as either healthy or unhealthy, make sure to be reasonable in your classifications.
-Things that fall into the categories of fruits, vegetables, lean meats, and other food that is traditionally seen as good for a human.
+Things that fall into the categories of fruits, vegetables, lean meats, and other food that is traditionally seen as good for a human should be labelled as healthy.
 
 Also pretend you are a environmental scientist that is well versed in the environmental impacts of the production of certain foods.
 When labelling items as either enviornmentally friendly or not, be reaonsable and take into account how much energy you get back during the production of the food.
