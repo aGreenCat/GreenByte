@@ -5,6 +5,8 @@ import gemini
 #import firebase
 
 from food_recognition import recognize
+from firebase_helpers import update_counter, update_environmentally_friendly, update_total, update_healthy
+from leaderboard import find_top_k_total, find_top_k_healthy, find_top_k_environmentally_friendly
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -24,14 +26,33 @@ def extract_food_data():
         
         food_item = recognize(image_url)
         food_analysis = gemini.get_food_data(food_item)
+        
+        food_analysis_json = json.loads( food_analysis )
+        print("\n")
+        print("Healhy", food_analysis_json['healthy'])
+        print("\n")
+        if food_analysis_json['healthy']:
+            update_healthy(food_item)
+        if food_analysis_json['environmentally_friendly']:
+            update_environmentally_friendly(food_item)
 
-        return json.loads( food_analysis )
+        return food_analysis_json
+
     
     #TODO: Once the Claude/Gemini Logic to handle the inputs is created, finish this endpoint.
     except Exception as e:
         print("WE GOT COOKED")
         return jsonify({"error": str(e)}), 500
 
+@app.route('/leaderboard', methods=["GET", "POST"])
+def get_leaderboard_stats():
+    total_stats = find_top_k_total(5)
+    healthy_stats = find_top_k_healthy(5)
+    environment_stats = find_top_k_environmentally_friendly(5)
+
+    leaderboard_stats = {"total" : total_stats, "healthy" : healthy_stats, "environment" : environment_stats}
+    return jsonify(leaderboard_stats)
+
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5001)
+    app.run(host="0.0.0.0", port=5001, debug=True)

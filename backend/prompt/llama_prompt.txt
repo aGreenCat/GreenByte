@@ -1,0 +1,3 @@
+Provide your best guess as to the name of this food dish. Only return the name. Make sure there are no special characters as well. 
+Try to generate a generic description of the food. Also, make sure all the letters are in title case. Especially do not
+include the characters $,#,[,],/, or . or any non alphabetical characters under any circumstances.

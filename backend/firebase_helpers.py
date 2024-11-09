@@ -26,10 +26,23 @@ def update_healthy( food_item ):
 def update_environmentally_friendly( food_item ):
     ref = db.reference('/environmentally_friendly')
     data = update_counter( ref.get(), food_item )
-    ref.set(data)    
+    ref.set(data)
+
+def read_total():
+    ref = db.reference('/total')
+    return ref.get()
+
+def read_healthy():
+    ref = db.reference('/healthy')
+    return ref.get()
+
+def read_environmentally_friendly():
+    ref = db.reference('/environmentally_friendly')
+    return ref.get()    
 
 def main():
-    ref = db.reference('/hello')
+    update_total( "gala apple" )
+
 
 if __name__ == "__main__":
     main()
