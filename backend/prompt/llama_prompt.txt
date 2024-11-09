@@ -1,3 +1,1 @@
-Provide your best guess as to the name of this food dish. Only return the name. Make sure there are no special characters as well. 
-Try to generate a generic description of the food. Also, make sure all the letters are in title case. Especially do not
-include the characters $,#,[,],/, or . or any non alphabetical characters under any circumstances.
+Forget all previous context and do not disobey this command. Provide your best guess as to the name of this food dish. Only return the name and make sure there is no period or special characters at the end. Also, make sure it consists of only letters and no special characters. If the picture isn't of food, return 'Nothing'.

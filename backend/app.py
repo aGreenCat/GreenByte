@@ -21,10 +21,10 @@ def extract_food_data():
         data = request.get_json()
         image_url = data.get('image')
 
-        if not image_url:
+        if not image_url or image_url == "":
             return jsonify({"error": "No image provided"}), 400
-        
-        food_item = recognize(image_url)
+        food_item = ''.join(char for char in recognize(image_url) if char.isalpha() or char.isspace())
+
         food_analysis = gemini.get_food_data(food_item)
         
         food_analysis_json = json.loads( food_analysis )
@@ -41,6 +41,7 @@ def extract_food_data():
     #TODO: Once the Claude/Gemini Logic to handle the inputs is created, finish this endpoint.
     except Exception as e:
         print("WE GOT COOKED")
+        print(e)
         return jsonify({"error": str(e)}), 500
 
 @app.route('/leaderboard', methods=["GET", "POST"])
