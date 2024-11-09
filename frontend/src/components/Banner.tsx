@@ -13,7 +13,7 @@ const Banner: React.FC<BannerProps> = ({ onAboutMeClick, onLeaderboardClick}) =>
 		<img src="src/assets/gb.svg" alt="GreenByte Logo" className="logo" width={50}/>
 		<h1 className="banner-title">GreenByte</h1>
 		
-		<div className="button">
+		<div className="button flex flex-row flex-wrap gap-y-1.5 gap-x-3 justify-end">
 			<button className="about-me-button" onClick={onAboutMeClick}>
 			About Us 
 			</button>
