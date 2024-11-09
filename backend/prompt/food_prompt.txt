@@ -3,6 +3,7 @@ Your response should comprise of only the JSON body that I request and nothing o
 DO NOT include the triple tricks to make it a code block.
 I want it to simply be a string in json format which i can do json.loads() on
 Make sure there are no extra spaces
+MAKE SURE THERE ARE NO SPECIAL CHARACTERS, ESPECIALLY ($, [,],/,.)
 
 Pretend you are a nutrition scientist. When labelling items as either healthy or unhealthy, make sure to be reasonable in your classifications.
 Things that fall into the categories of fruits, vegetables, lean meats, and other food that is traditionally seen as good for a human should be labelled as healthy.

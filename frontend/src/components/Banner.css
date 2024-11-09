@@ -1,50 +1,44 @@
-
 .banner {
-    position: fixed; /* Positions the banner at the top */
-    top: 0;
-    left: 0;
-    width: 100%; /* Makes it span the full width of the screen */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 20px;
-    background-color: #ace1a2;
-    color: green;
-    z-index: 1000px; /* Keeps the banner above other elements */
-  }
-  
-  .banner-title {
-    font-size: 1.5rem;
-  }
-  
-  .about-me-button {
-    margin-right: 0px; /* Adds space between button and the right edge */
-    background-color: green; /* Optional button color */
-    color: rgb(198, 222, 174);
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .about-me-button:hover {
-    background-color: #0056b3;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px; /* Adds padding for a balanced look */
+  background-color: #ace1a2;
+  color: green;
+  z-index: 1000; /* Fixes the z-index value */
+}
 
-  .leaderboard-button{
+.banner-title {
+  font-size: 1.5rem;
+  flex: 1;
+  text-align: center; /* Centers the title text within its space */
+}
 
-    margin-right: 50px; /* Adds space between button and the right edge */
-    background-color: green; /* Optional button color */
-    color: rgb(198, 222, 174);
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
+.logo {
+  margin-right: auto; /* Aligns logo to the left */
+  padding-right: 20px; /* Adds space between the logo and the title */
+}
+
+.about-me-button, .leaderboard-button {
+  background-color: green;
+  color: rgb(198, 222, 174);
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px; /* Adds some space between buttons */
+}
+
+.about-me-button:hover, .leaderboard-button:hover {
+  background-color: #0056b3;
+}
+
+.leaderboard-button {
+  margin-left: auto; /* Aligns button to the right */
+}
 
 
-  }
-
-  .logo{
-
-    filter: hue-rotate(90deg) saturate(2) brightness(0.8);
-
-  }
   
