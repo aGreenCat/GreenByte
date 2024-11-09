@@ -2,6 +2,7 @@
 import React from 'react';
 import './LeaderboardModal.css';  // Import your CSS file here
 
+
 interface LeaderboardModalProps {
     showLeaderboardModal: boolean;
     closeLeaderboardModal: () => void;
