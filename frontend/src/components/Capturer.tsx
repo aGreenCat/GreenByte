@@ -5,8 +5,10 @@ import {toBase64} from "../functions/toBase64.ts";
 
 export type FoodDataType = {
 	food_name: string,
+	photo: string,
 	error: string | null,
-    calories_lower: number,
+    
+	calories_lower: number,
     calories_upper: number,
     carbon_emissions: number,
     gallons_per_item_produced: number,
@@ -61,6 +63,7 @@ const Capturer = (props : CapturerProps) => {
 				console.error('Error: ' + response.error);
 			} else {
 				console.log(response);
+				response.photo = photo;
 				props.updateFoodData(response);
 			}
 
@@ -81,6 +84,7 @@ const Capturer = (props : CapturerProps) => {
 			console.error('Error: ' + response.error);
 		} else {
 			console.log(response);
+			response.photo = photoUploadBuffer;
 			props.updateFoodData(response);
 			setLoading(false);
 		}

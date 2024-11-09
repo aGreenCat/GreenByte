@@ -2,8 +2,6 @@ import React from 'react';
 import './Banner.css';
 import GB from '../assets/GB.svg'; // Adjust the file path and extension as needed
 
-
-
 interface BannerProps {
   onAboutMeClick: () => void;
 }

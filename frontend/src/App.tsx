@@ -6,7 +6,6 @@ import FoodDataDisplay from './components/FoodDataDisplay.tsx';
 import Modal from './components/Modal.tsx';
 import Banner from './components/Banner';
 
-
 function App() {
 	const [foodData, setFoodData] = useState<FoodDataType | null>(null);
 	const [version, setVersion] = useState<CaptureType>('capture');
@@ -18,10 +17,9 @@ function App() {
 	
 	return (
 		<>
-			  {/* Conditionally render the Banner component only if foodData is null */}
-      {!foodData && <Banner onAboutMeClick={openModal} />} {/* Banner appears only if no food data is submitted */}
-
-
+			{/* Conditionally render the Banner component only if foodData is null */}
+      		{!foodData && <Banner onAboutMeClick={openModal} />} {/* Banner appears only if no food data is submitted */}
+			
 			{foodData 
 				? <div className='main'>
 					<FoodDataDisplay foodData={foodData} /> 

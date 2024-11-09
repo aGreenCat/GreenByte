@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FoodDataType } from "./Capturer.tsx";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHeart, faLeaf } from '@fortawesome/free-solid-svg-icons';
@@ -11,28 +11,19 @@ interface FoodDataDisplayProps {
 }
 
 const FoodDataDisplay: React.FC<FoodDataDisplayProps> = ({ foodData }) => {
-    const [isHovered, setIsHovered] = useState(false);
-
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-    };
-
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    };
-
     return (
         <div
-            className={`bg-green-50 p-6 rounded-lg max-w-md mx-auto shadow-md mt-6 ${
-                isHovered ? 'scale-110' : ''
-            }`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+			className='flex-1 flex flex-col align-center gap-4'
         >
             <h1 className="text-2xl font-bold text-green-700 text-center mb-4">GreenBytes</h1>
-            <p className="text-lg font-semibold text-green-800 text-center mb-4">
+            <p className="text-xl font-semibold text-green-800 text-center mb-4">
                 Food: <span className="font-normal">{foodData.food_name}</span>
             </p>
+
+			<div className="flex flex-row justify-center">
+				<img className="max-w-[600x] rounded-md" src={foodData.photo} alt={foodData.food_name} />
+			</div>
+
             {foodData.error && (
                 <p className="text-red-600 text-center mb-4">Error: {foodData.error}</p>
             )}
