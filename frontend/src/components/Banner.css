@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px; /* Adds padding for a balanced look */
-  background-color: #ace1a2;
+  background-color: #d8fccc;
   color: green;
   z-index: 1000; /* Fixes the z-index value */
 }
