@@ -57,6 +57,7 @@ const Capturer = (props : CapturerProps) => {
 
 		if (typeof photo === 'string') {
 			setLoading(true);
+			setPhotoUploadBuffer(photo);
 			let response = await recognize(photo);
 			
 			if (response.error) {
@@ -96,7 +97,10 @@ const Capturer = (props : CapturerProps) => {
 				? <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1em'}}>
 
 					<div style={{maxWidth: '600px', width: '100%'}} >
-						<Camera ref={camera} errorMessages={defaultErrorMessages} aspectRatio={4/3}/>
+						{loading
+							? (photoUploadBuffer && <img src={photoUploadBuffer} alt="Captured" style={{width: '100%', height: 'auto', borderRadius: '10px'}} />)
+							: <Camera ref={camera} errorMessages={defaultErrorMessages} aspectRatio={4/3}/>
+						}
 					</div>
 					<button onClick={handleTakePhoto}>{loading ? "Loading..." : "Take Photo"}</button>
 				</div>
