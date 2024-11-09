@@ -104,7 +104,7 @@ const Capturer = (props : CapturerProps) => {
 				: <div>
 					<h2>Upload Image</h2>
 
-					<input id="upload" style={{paddingTop: '2em', paddingBottom: '2em'}} type="file" accept="image/*"
+					<input className="p-6 my-6 border" type="file" accept="image/*"
 						onChange={async (event) => {
 							if (event.target.files === null) {
 								return;

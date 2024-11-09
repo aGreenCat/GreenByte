@@ -23,10 +23,8 @@ function App() {
 	
 	return (
 		<>
-		{/* Conditionally render the Banner component only if foodData is null */}
-        {<Banner onAboutMeClick={openModal} onLeaderboardClick={openLeaderboardModal}/>}
-
-
+			{/* Conditionally render the Banner component only if foodData is null */}
+	        {<Banner onAboutMeClick={openModal} onLeaderboardClick={openLeaderboardModal}/>}
 
 			{foodData 
 				? <div className='main'>
@@ -41,7 +39,7 @@ function App() {
 					<Capturer updateFoodData={setFoodData} version={version}/>
 				</div>
 
-				<button onClick={() => {
+				<button style={{alignSelf: "center", backgroundColor: "#cdcdcd"}} onClick={() => {
 					setVersion(version === 'capture' ? 'upload' : 'capture');
 				}}>Switch to {version === 'capture' ? 'Upload' : 'Capture'}</button>
 				</>
