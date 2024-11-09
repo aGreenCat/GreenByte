@@ -15,7 +15,7 @@
 .banner-title {
   font-size: 1.5rem;
   flex: 1;
-  text-align: center; /* Centers the title text within its space */
+  text-align: left; /* Centers the title text within its space */
 }
 
 .logo {
