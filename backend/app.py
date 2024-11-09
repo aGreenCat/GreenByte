@@ -28,9 +28,8 @@ def extract_food_data():
         food_analysis = gemini.get_food_data(food_item)
         
         food_analysis_json = json.loads( food_analysis )
-        print("\n")
-        print("Healhy", food_analysis_json['healthy'])
-        print("\n")
+        
+        update_total(food_item)
         if food_analysis_json['healthy']:
             update_healthy(food_item)
         if food_analysis_json['environmentally_friendly']:
