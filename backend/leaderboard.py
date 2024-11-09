@@ -57,9 +57,8 @@ def find_top_k_healthy( k ):
     
     res = []
     while heap:
-        _, name = heapq.heappop( heap )
-        res.append( name )
-    
+        count , name =  heapq.heappop(heap)
+        res.append( [name,count] )
     return res[::-1]
 
 def find_top_k_environmentally_friendly( k ):
@@ -69,19 +68,18 @@ def find_top_k_environmentally_friendly( k ):
     for food, count in environmetnally_friendly_food.items():
         heapq.heappush( heap, (count, food) )
         if len(heap) > k:
-            heapq.heappop()
+            heapq.heappop(heap)
     
     res = []
     while heap:
-        _, name = heapq.heappop(heap)
-        res.append(name)
-    
+        count , name =  heapq.heappop(heap)
+        res.append( [name,count] )
     return res[::-1]
 
 
 def main():
-    total_leaderboard = find_top_k_total(3)
-    find_top_k_healthy(3)
+    print(find_top_k_total(3))
+    print(find_top_k_healthy(3))
     print( find_top_k_environmentally_friendly(3) )
 
 if __name__ == "__main__":
