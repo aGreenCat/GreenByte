@@ -39,7 +39,7 @@ function App() {
 					<Capturer updateFoodData={setFoodData} version={version}/>
 				</div>
 
-				<button style={{alignSelf: "center", backgroundColor: "#cdcdcd"}} onClick={() => {
+				<button style={{alignSelf: "center", backgroundColor: "#cdcdcd",}} onClick={() => {
 					setVersion(version === 'capture' ? 'upload' : 'capture');
 				}}>Switch to {version === 'capture' ? 'Upload' : 'Capture'}</button>
 				</>
