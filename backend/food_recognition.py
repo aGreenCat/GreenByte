@@ -53,6 +53,3 @@ def recognize(image_url):
 
     return food_name.strip()
 
-#Test case
-# print(food_recogition("https://t3.ftcdn.net/jpg/09/46/67/92/240_F_946679241_aD3TBjdk977KMIzhb75HedvGOB4SdwDY.jpg"))
-
