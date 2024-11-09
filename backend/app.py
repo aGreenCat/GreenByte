@@ -6,6 +6,7 @@ import gemini
 
 from food_recognition import recognize
 from firebase_helpers import update_counter, update_environmentally_friendly, update_total, update_healthy
+from leaderboard import find_top_k_total, find_top_k_healthy, find_top_k_environmentally_friendly
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -42,6 +43,15 @@ def extract_food_data():
     except Exception as e:
         print("WE GOT COOKED")
         return jsonify({"error": str(e)}), 500
+
+@app.route('/leaderboard', methods=["GET", "POST"])
+def get_leaderboard_stats():
+    total_stats = find_top_k_total(5)
+    healthy_stats = find_top_k_healthy(5)
+    environment_stats = find_top_k_environmentally_friendly(5)
+
+    leaderboard_stats = {"total" : total_stats, "healthy" : healthy_stats, "environment" : environment_stats}
+    return jsonify(leaderboard_stats)
 
 
 if __name__ == '__main__':
