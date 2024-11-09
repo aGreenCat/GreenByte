@@ -6,26 +6,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px; /* Adds padding for a balanced look */
+  padding: 20px 20px; /* Adds padding for a balanced look */
   background-color: #d8fccc;
-  color: green;
+  color: #3d6d40;
+  gap: 10px; /* Adds space between elements */
   z-index: 1000; /* Fixes the z-index value */
+}
+
+.logo {
+  padding: 5px;
 }
 
 .banner-title {
   font-size: 1.5rem;
+  font-weight: bold;
   flex: 1;
   text-align: left; /* Centers the title text within its space */
 }
 
-.logo {
-  margin-right: auto; /* Aligns logo to the left */
-  padding-right: 20px; /* Adds space between the logo and the title */
-}
-
 .about-me-button, .leaderboard-button {
-  background-color: green;
-  color: rgb(198, 222, 174);
+  background-color: #3d6d40;
+  color: #d8fccc;
   padding: 8px 16px;
   border: none;
   cursor: pointer;
@@ -33,12 +34,7 @@
 }
 
 .about-me-button:hover, .leaderboard-button:hover {
-  background-color: #0056b3;
+  background-color: #314732;
 }
-
-.leaderboard-button {
-  margin-left: auto; /* Aligns button to the right */
-}
-
 
   

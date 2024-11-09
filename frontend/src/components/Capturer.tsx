@@ -119,6 +119,7 @@ const Capturer = (props : CapturerProps) => {
 							}
 						}}
 					/>
+					<br />
 
 					{photoUploadBuffer &&
 						<button onClick={handleUploadPhoto}>Upload Photo</button>

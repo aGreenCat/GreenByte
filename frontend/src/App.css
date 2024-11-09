@@ -25,13 +25,19 @@ body {
   margin: 0; /* Optional: Remove default margin */
   padding: 0; /* Optional: Remove default padding */
 }
-
+/* 
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+} */
+
+
+#video {
+	border-radius: 10px;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
