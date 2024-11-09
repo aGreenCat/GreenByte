@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css'
-import Capturer from "./components/Capturer.tsx";
+import Capturer, {CaptureType} from "./components/Capturer.tsx";
 import { FoodDataType } from "./components/Capturer.tsx";
 import FoodDataDisplay from './components/FoodDataDisplay.tsx';
 import Modal from './components/Modal.tsx';
@@ -9,28 +9,38 @@ import Banner from './components/Banner';
 
 function App() {
 	const [foodData, setFoodData] = useState<FoodDataType | null>(null);
-  const [showModal, setShowModal] = useState(false); // State to track modal visibility
+	const [version, setVersion] = useState<CaptureType>('upload');
 
-  const openModal = () => setShowModal(true); // Function to open the modal
-  const closeModal = () => setShowModal(false); // Function to close the modal
+	const [showModal, setShowModal] = useState(false); // State to track modal visibility
 
+	const openModal = () => setShowModal(true); // Function to open the modal
+	const closeModal = () => setShowModal(false); // Function to close the modal
+	
 	return (
 		<>
-
-    <Banner onAboutMeClick={openModal} />  {/* Pass openModal to Banner */}
+			<Banner onAboutMeClick={openModal} />  {/* Pass openModal to Banner */}
 
 			{foodData 
-				? <FoodDataDisplay foodData={foodData} />  // Use FoodDataDisplay component here
-				: <Capturer updateFoodData={setFoodData} />
+				? <div className='main'>
+					<FoodDataDisplay foodData={foodData} />  // Use FoodDataDisplay component here
+
+					<button onClick={() => {
+						setFoodData(null);
+					}}>Submit Another</button>
+				</div>
+				: <>
+				<div className='main'>
+					<Capturer updateFoodData={setFoodData} version={version}/>
+				</div>
+
+				<button onClick={() => {
+					setVersion(version === 'capture' ? 'upload' : 'capture');
+				}}>Switch to {version === 'capture' ? 'Upload' : 'Capture'}</button>
+				</>
 			}
-
-			<p>
-				foodData: {foodData ? JSON.stringify(foodData) : 'null'}
-			</p>
-
-      {/* Modal component that shows based on showModal state */}
-      {showModal && <Modal showModal={showModal} closeModal={closeModal} />}
       
+			{/* Modal component that shows based on showModal state */}
+			{showModal && <Modal showModal={showModal} closeModal={closeModal} />}
 		</>
 	)
 }
