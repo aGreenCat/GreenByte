@@ -1,23 +1,24 @@
 import React from 'react';
 import './Banner.css';
-import GB from '../assets/GB.svg'; // Adjust the file path and extension as needed
+import clearGB from '../assets/clearGB.png'; // Adjust the file path and extension as needed
 
 
 
 interface BannerProps {
-  onAboutMeClick: () => void;
+  onAboutMeClick?: () => void ;
+  onLeaderboardClick?: () => void;
 }
 
-const Banner: React.FC<BannerProps> = ({ onAboutMeClick }) => {
+const Banner: React.FC<BannerProps> = ({ onAboutMeClick, onLeaderboardClick}) => {
   return (
     <div className="banner">
-    <img src={GB} alt="GreenByte Logo" className="logo" />
+    <img src={clearGB} alt="GreenByte Logo" className="logo"/>
       <h1 className="banner-title">Welcome to Greenbyte</h1>
       <div className="button">
       <button className="about-me-button" onClick={onAboutMeClick}>
         About Us 
         </button>
-        <button className="leaderboard-button" onClick={onAboutMeClick}>
+        <button className="leaderboard-button" onClick={onLeaderboardClick}>
             Leaderboard
       </button>
       </div>
